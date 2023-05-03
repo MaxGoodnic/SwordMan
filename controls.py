@@ -4,9 +4,9 @@ import enemy
 import records
 
 #Числовые константы
-DisplayWidth = 600
-DisplayHeight = 360
-BLACK = (0,0,0)
+D_W = 600 # ширина экрана
+D_H = 360 # высота экрана
+BLACK = (0,0,0) # основной цвет текстов
 
 def events(statistic, game_stat, ghost_timer, orange_ghost_timer, ghosts, orange_ghosts):
     """считывание нажатия кнопки выхода и добавление привидений по счётчику"""
@@ -54,9 +54,9 @@ def update_menu(game_stat, sc, menu, ghosts, orange_ghosts, statistic, hero) :
     mouse = pygame.mouse.get_pos() 
     if game_stat.get_stat()[0] : # начальное меню
         sc.blit(menu, (0,0))
-        pos1 = records.start_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 - 60))
-        pos2 = records.settings_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2))
-        pos3 = records.statistic_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 + 60))
+        pos1 = records.start_label.get_rect(center = (D_W // 2, D_H // 2 - 60))
+        pos2 = records.settings_label.get_rect(center = (D_W // 2, D_H // 2))
+        pos3 = records.statistic_label.get_rect(center = (D_W // 2, D_H // 2 + 60))
         sc.blit(records.start_label, pos1)
         sc.blit(records.settings_label,pos2)
         sc.blit(records.statistic_label,pos3)
@@ -68,8 +68,8 @@ def update_menu(game_stat, sc, menu, ghosts, orange_ghosts, statistic, hero) :
             game_stat.set_statistic()
     if game_stat.get_stat()[1] : # меню поражения
         sc.blit(menu, (0,0))
-        pos1 = records.restart_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 - 30))
-        pos2 = records.menu_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 + 30))
+        pos1 = records.restart_label.get_rect(center = (D_W // 2, D_H // 2 - 30))
+        pos2 = records.menu_label.get_rect(center = (D_W // 2, D_H // 2 + 30))
         sc.blit(records.restart_label, pos1)
         sc.blit(records.menu_label,pos2)
         if pos1.collidepoint(mouse) and pygame.mouse.get_pressed()[0] :
@@ -78,8 +78,8 @@ def update_menu(game_stat, sc, menu, ghosts, orange_ghosts, statistic, hero) :
             game_stat.set_begin()
     if game_stat.get_stat()[2]: # меню паузы
         sc.blit(menu, (0,0))
-        pos1 = records.back_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 - 35))
-        pos2 = records.menu_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 + 35))
+        pos1 = records.back_label.get_rect(center = (D_W // 2, D_H // 2 - 35))
+        pos2 = records.menu_label.get_rect(center = (D_W // 2, D_H // 2 + 35))
         sc.blit(records.back_label, pos1)
         sc.blit(records.menu_label,pos2)
         if pos1.collidepoint(mouse) and pygame.mouse.get_pressed()[0] :
@@ -95,12 +95,12 @@ def update_menu(game_stat, sc, menu, ghosts, orange_ghosts, statistic, hero) :
             enemy.OrangeGhost.count_zeroing()
     if game_stat.get_stat()[3]:  # меню настроек
         sc.blit(menu, (0,0))
-        pos1 = records.info1_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 - 75))
-        pos2 = records.info2_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 - 45))
-        pos3 = records.info3_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 - 15))
-        pos4 = records.info4_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 + 15))
-        pos5 = records.info5_label.get_rect(center = (DisplayWidth // 2, DisplayHeight //2 + 45))
-        pos6 = records.menu_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 + 90))
+        pos1 = records.info1_label.get_rect(center = (D_W // 2, D_H // 2 - 75))
+        pos2 = records.info2_label.get_rect(center = (D_W // 2, D_H // 2 - 45))
+        pos3 = records.info3_label.get_rect(center = (D_W // 2, D_H // 2 - 15))
+        pos4 = records.info4_label.get_rect(center = (D_W // 2, D_H // 2 + 15))
+        pos5 = records.info5_label.get_rect(center = (D_W // 2, D_H //2 + 45))
+        pos6 = records.menu_label.get_rect(center = (D_W // 2, D_H // 2 + 90))
         sc.blit(records.info1_label, pos1)
         sc.blit(records.info2_label, pos2)
         sc.blit(records.info3_label, pos3)
@@ -111,9 +111,9 @@ def update_menu(game_stat, sc, menu, ghosts, orange_ghosts, statistic, hero) :
             game_stat.set_begin()
     if game_stat.get_stat()[4] : # меню статистики
         best_stata,last_stata = statistic.file_read(records.font, BLACK)
-        pos1 = best_stata.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 - 40))
-        pos2 = last_stata.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2))
-        pos3 = records.menu_label.get_rect(center = (DisplayWidth // 2, DisplayHeight // 2 + 100))
+        pos1 = best_stata.get_rect(center = (D_W // 2, D_H // 2 - 40))
+        pos2 = last_stata.get_rect(center = (D_W // 2, D_H // 2))
+        pos3 = records.menu_label.get_rect(center = (D_W // 2, D_H // 2 + 100))
         sc.blit(menu, (0,0))
         sc.blit(best_stata, pos1)
         sc.blit(last_stata, pos2)
